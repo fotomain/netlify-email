@@ -12,23 +12,23 @@ exports.handler = async function (event, context, callback) {
   let testAccount = await nodemailer.createTestAccount()
 
   // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    // host: "smtp.ethereal.email",
-    // port: 587,
-    // secure: false, // true for 465, false for other ports
-    // auth: {
-    //   user: testAccount.user, // generated ethereal user
-    //   pass: testAccount.pass // generated ethereal password
-    // }
+  // let transporter = nodemailer.createTransport({
+  //    service: "gmail",
+  //    auth: {
+  //
+  //     user: 'foto888999@gmail.com',
+  //     // process.env.WORD
+  //     pass: '----------',
+  //  },
 
-    service: "gmail",
-    auth: {
-
-      user: 'foto888999@gmail.com',
-      // process.env.WORD
-      pass: 'rpezevwacplvxshd',
-
-    },
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+        user: 'yadira.connelly36@ethereal.email',
+        pass: 't3b5gfKWQCT2wCtahD'
+      }
+    });
 
 
 
