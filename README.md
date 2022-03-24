@@ -16,8 +16,3 @@ This is technically ready to run out of the box if you want to copy it wholesale
 
 If you do want to start by deploying this project, this directory is _technically_ ready to go as a Netlify project. It even has a `netlify.toml` with some basics to get started. However, it is using an Ethereal test account. That means the inbox is generated on the fly and you won't actually be able to see the email messages. You're welcome to swap these values out for something more stable.
 
-## Issues
-
-If you find issues or have questions, you're welcome to [submit a GitHub issue](https://github.com/seancdavis/seancdavis-com/issues/new). I tend to address post issues in batches every so often.
-
-For a quicker response time, [try Twitter](https://twitter.com/seancdavis29).

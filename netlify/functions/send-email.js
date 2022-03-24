@@ -21,18 +21,16 @@ exports.handler = async function (event, context, callback) {
   //     pass: '----------',
   //  },
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
-      auth: {
-        user: 'yadira.connelly36@ethereal.email',
-        pass: 't3b5gfKWQCT2wCtahD'
-      }
-    });
+   // })
 
-
-
-  })
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+      user: 'yadira.connelly36@ethereal.email',
+      pass: 't3b5gfKWQCT2wCtahD'
+    }
+  });
 
   try {
     // send mail with defined transport object
