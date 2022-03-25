@@ -17,7 +17,7 @@ exports.handler = async function (event, context, callback) {
   //    auth: {
   //
   //     user: 'foto888999@gmail.com',
-  //     // process.env.WORD
+  //     // make special app pass
   //     pass: '----------',
   //  },
 

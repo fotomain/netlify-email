@@ -28,7 +28,7 @@
     </form>
 
     <script>
-      function submitForm(event) {
+      async function submitForm(event) {
         // Stop the browser's default behavior.
         event.preventDefault()
         // Retrieve data from the form.
@@ -37,11 +37,20 @@
         // Convert data to JSON object.
         var jsonData = {}
         formData.forEach((value, key) => (jsonData[key] = value))
-        // Send the data to the Netlify function.
-        request.open("POST", "/.netlify/functions/send-email")
-        request.send(JSON.stringify(jsonData))
-        // Clear the form.
-        alert("Email request submitted!")
+
+          if(false) {
+            // Send the data to the Netlify function.
+            request.open("POST", "/.netlify/functions/send-email")
+            request.send(JSON.stringify(jsonData))
+            // Clear the form.
+            alert("Email request submitted!")
+          }
+
+        console.log("=== onClick_btn"+Date.now())
+        const sgResponse = await fetch("https://site33.komuvsenado.com/myphp/page_email1.php")
+        console.log(sgResponse)
+
+
         event.target.reset()
       }
     </script>
