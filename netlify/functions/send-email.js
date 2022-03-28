@@ -2,10 +2,15 @@ const nodemailer = require("nodemailer")
 
 exports.handler = async function (event, context, callback) {
   // Parse the JSON text received.
-  const body = JSON.parse(event.body)
+  const body1 = JSON.parse(event.body)
+
+    const body = {
+        "body":"body111",
+        "email":'foto888999@gmail.com',
+    };
 
   // Build an HTML string to represent the body of the email to be sent.
-  const html = `<div style="margin: 20px auto;">${(body.body)?body.body:'inline body'}</div>`
+  const html = `<div style="margin: 20px auto;">${body.body}</div>`
 
   // Generate test SMTP service account from ethereal.email. Only needed if you
   // don't have a real mail account for testing
@@ -38,9 +43,9 @@ exports.handler = async function (event, context, callback) {
     let info = await transporter.sendMail({
       from: '"☁️ The Cloud ☁️" <thecloud@example.com>',
 
-      to: (body.email)?body.email:'foto888999@gmail.com',
+      to: body.email,
       subject: "New Form Submission",
-      text: (body.body)?body.body:'inline email',
+      text: body.body,
       html: html
     })
     // Log the result
