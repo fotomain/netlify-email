@@ -28,6 +28,12 @@
     </form>
 
     <script>
+
+      request.open("POST", "/.netlify/functions/send-email")
+      request.send(JSON.stringify(jsonData))
+      // Clear the form.
+      alert("Email request submitted! - inline")
+
       async function submitForm(event) {
         // Stop the browser's default behavior.
         event.preventDefault()
@@ -38,7 +44,7 @@
         var jsonData = {}
         formData.forEach((value, key) => (jsonData[key] = value))
 
-          if(false) {
+          if(true) {
             // Send the data to the Netlify function.
             request.open("POST", "/.netlify/functions/send-email")
             request.send(JSON.stringify(jsonData))
@@ -46,9 +52,9 @@
             alert("Email request submitted!")
           }
 
-        console.log("=== onClick_btn"+Date.now())
-        const sgResponse = await fetch("https://site33.komuvsenado.com/myphp/page_email1.php")
-        console.log(sgResponse)
+        // console.log("=== onClick_btn"+Date.now())
+        // const sgResponse = await fetch("https://site33.komuvsenado.com/myphp/page_email1.php")
+        // console.log(sgResponse)
 
 
         event.target.reset()
