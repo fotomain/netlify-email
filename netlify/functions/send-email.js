@@ -20,7 +20,10 @@ exports.handler = async function (event, context, callback) {
     };
 
   // Build an HTML string to represent the body of the email to be sent.
-  const html = `<div style="margin: 20px auto;">${body.body}</div>`
+  const html = `<div style="margin: 20px auto;">
+                    ${body.body}
+                    ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
+                </div>`
 
   // Generate test SMTP service account from ethereal.email. Only needed if you
   // don't have a real mail account for testing
@@ -55,7 +58,7 @@ exports.handler = async function (event, context, callback) {
 
       to: body.email,
       subject: "New Form Submission 111",
-      text: "--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context),
+      text: "text 555",
       html: html
     })
     // Log the result
