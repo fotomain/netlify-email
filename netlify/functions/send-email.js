@@ -54,8 +54,8 @@ exports.handler = async function (event, context, callback) {
       from: '"☁️ The Cloud ☁️" <thecloud@example.com>',
 
       to: body.email,
-      subject: "New Form Submission",
-      text: body.body + "--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context),
+      subject: "New Form Submission 111",
+      text: "--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context),
       html: html
     })
     // Log the result
