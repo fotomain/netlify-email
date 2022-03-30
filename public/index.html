@@ -42,7 +42,7 @@
       request1.open("POST", "/.netlify/functions/send-email")
       request1.send(JSON.stringify(jsonData1))
       // Clear the form.
-      alert("Email request submitted! - inline")
+      // alert("Email request submitted! - inline 111")
 
       async function submitForm(event) {
         // Stop the browser's default behavior.
@@ -59,7 +59,7 @@
             request.open("POST", "/.netlify/functions/send-email")
             request.send(JSON.stringify(jsonData))
             // Clear the form.
-            alert("Email request submitted!")
+            // alert("Email request submitted 222!")
           }
 
         // console.log("=== onClick_btn"+Date.now())
