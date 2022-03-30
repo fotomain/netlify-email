@@ -1,5 +1,12 @@
 const nodemailer = require("nodemailer")
 
+
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
+
 exports.handler = async function (event, context, callback) {
   // Parse the JSON text received.
   const body1 = JSON.parse(event.body)
@@ -51,8 +58,9 @@ exports.handler = async function (event, context, callback) {
     // Log the result
     console.log(info)
     callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(info)
+        statusCode: 200,
+        headers,
+        body: JSON.stringify(info)
     })
   } catch (error) {
     // Catch and log error.
