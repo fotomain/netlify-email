@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer")
 
+require('dotenv').config()
 
 const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -9,6 +10,10 @@ const headers = {
 };
 
 exports.handler = async function (event, context, callback) {
+
+
+
+
   // Parse the JSON text received.
 
   // const body0 = JSON.parse(event.body)
@@ -42,9 +47,9 @@ exports.handler = async function (event, context, callback) {
      service: "gmail",
      auth: {
 
-      user: 'foto888999@gmail.com',
+      user: process.env.EMAIL_API_NAME,
       // make special app password api
-      pass: 'rpezevwacplvxshd',
+      pass: process.env.EMAIL_API_PASSWORD,
    },
 
    })
