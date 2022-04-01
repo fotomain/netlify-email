@@ -27,14 +27,15 @@ exports.handler = async function (event, context, callback) {
 
   // Build an HTML string to represent the body of the email to be sent.
   // ${body.body}
+  //   ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
   const html = `<div style="margin: 20px auto;">
                     
-                    <br>
-                    ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
-                    <br>
-                    "===================="
-                    <br>
-                    ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
+        <br>
+        ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body.subject)}
+        <br>
+        "===================="
+        <br>
+        ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
                     
                 </div>`
 
