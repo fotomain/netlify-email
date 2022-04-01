@@ -35,6 +35,8 @@ exports.handler = async function (event, context, callback) {
   const html = `<div style="margin: 20px auto;">
 
         <br>
+        ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}
+        <br>
         ${"--- arrData.part1.subject --- "+sendData.part1.subject}
         <br>                  
         ${"--- arrData.part1.email_from --- "+sendData.part1.email_from}                  
@@ -79,6 +81,11 @@ exports.handler = async function (event, context, callback) {
 
   try {
     // send mail with defined transport object
+
+      if(process.env.API_KEY!==sendData.part1.api_key){
+        return;
+      }
+
     let info = await transporter.sendMail({
       from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
