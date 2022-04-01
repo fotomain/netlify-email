@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer")
 
+//npm install dotenv --save
 require('dotenv').config()
 
 const headers = {
@@ -21,12 +22,17 @@ exports.handler = async function (event, context, callback) {
 
     const body = {
         "body":"body111",
-        "email":'foto888999@gmail.com',
+        "email":'foto555999@gmail.com',
     };
 
   // Build an HTML string to represent the body of the email to be sent.
   // ${body.body}
   const html = `<div style="margin: 20px auto;">
+
+                    <br>
+                    ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.email_from)}
+                    <br>
+                    ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.email_to)}
                     
                     <br>
                     ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
