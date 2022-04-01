@@ -18,28 +18,28 @@ exports.handler = async function (event, context, callback) {
   // const body0 = JSON.parse(event.body)
 
 
-    const body = {
-        "body":"body111",
-        "email":'foto555999@gmail.com',
-    };
+    // const body = {
+    //     "body":"body111",
+    //     "email":'foto555999@gmail.com',
+    // };
 
   // Build an HTML string to represent the body of the email to be sent.
   // ${body.body}
   //   ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
 
   // const arrData = Array.from(event.body)
-  const arrData = JSON.parse(event.body)
+  const sendData = JSON.parse(event.body)
   // const arrData1 = JSON.parse(arrData0)
   //   ${"--- arrData.email_to --- "+arrData.email_to}
 
   const html = `<div style="margin: 20px auto;">
 
         <br>
-        ${"--- arrData.part1.subject --- "+arrData.part1.subject}
+        ${"--- arrData.part1.subject --- "+sendData.part1.subject}
         <br>                  
-        ${"--- arrData.part1.email_from --- "+arrData.part1.email_from}                  
+        ${"--- arrData.part1.email_from --- "+sendData.part1.email_from}                  
         <br>
-        ${"--- arrData.part1.email_to --- "+arrData.part1.email_to}                  
+        ${"--- arrData.part1.email_to --- "+sendData.part1.email_to}                  
         <br>
         ${"--- event.body --- "+JSON.stringify(event.body)}
         <br>
@@ -80,11 +80,12 @@ exports.handler = async function (event, context, callback) {
   try {
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: '"☁️ The Cloud ☁️" <thecloud@example.com>',
+      from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
-      to: body.email,
-      subject: "New Form Submission 111",
-      text: "text 555",
+      to: sendData.part1.email_to,
+      subject: sendData.part1.subject,
+      // subject: "New Form Submission 111",
+      // text: "text 555",
       html: html
     })
     // Log the result
