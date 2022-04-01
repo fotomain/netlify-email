@@ -27,15 +27,14 @@ exports.handler = async function (event, context, callback) {
   // ${body.body}
   //   ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
 
-  const arrData = JSON.parse(event.body)
+  const arrData = Array.from(event.body)
+  // const arrData = JSON.parse(event.body)
+  //   ${"--- arrData.email_to --- "+arrData.email_to}
 
   const html = `<div style="margin: 20px auto;">
 
         <br>
-        ${"--- arrData.subject --- "+arrData.subject}                  
-        <br>
-        ${"--- arrData.email_to --- "+arrData.email_to}
-        
+        ${"--- arrData.toString() --- "+arrData.toString()}                  
         <br>
         ${"--- event.body --- "+JSON.stringify(event.body)}
         <br>
