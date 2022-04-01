@@ -35,9 +35,11 @@ exports.handler = async function (event, context, callback) {
   const html = `<div style="margin: 20px auto;">
 
         <br>
-        ${"--- arrData.email_to --- "+arrData.part1.subject}
+        ${"--- arrData.part1.subject --- "+arrData.part1.subject}
         <br>                  
-        ${"--- arrData.email_to --- "+arrData.part1.email_to}                  
+        ${"--- arrData.part1.email_from --- "+arrData.part1.email_from}                  
+        <br>
+        ${"--- arrData.part1.email_to --- "+arrData.part1.email_to}                  
         <br>
         ${"--- event.body --- "+JSON.stringify(event.body)}
         <br>
