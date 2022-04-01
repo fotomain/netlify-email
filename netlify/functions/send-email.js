@@ -31,7 +31,7 @@ exports.handler = async function (event, context, callback) {
   const html = `<div style="margin: 20px auto;">
                     
         <br>
-        ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body.subject)}
+        ${"--- multiValueQueryStringParameters.body --- "+JSON.parse(event.multiValueQueryStringParameters)}
         <br>
         "===================="
         <br>
