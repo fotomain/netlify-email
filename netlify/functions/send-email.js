@@ -13,8 +13,6 @@ const headers = {
 exports.handler = async function (event, context, callback) {
 
 
-
-
   // Parse the JSON text received.
 
   // const body0 = JSON.parse(event.body)
@@ -31,7 +29,9 @@ exports.handler = async function (event, context, callback) {
   const html = `<div style="margin: 20px auto;">
                     
         <br>
-        ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters)}
+        ${"--- event.body.subject --- "+JSON.stringify(event.body.subject)}
+        <br>
+        ${"--- event.body --- "+JSON.stringify(event.body)}
         <br>
         "===================="
         <br>
