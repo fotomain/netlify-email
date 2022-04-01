@@ -33,6 +33,8 @@ exports.handler = async function (event, context, callback) {
         <br>
         ${"--- event.body --- "+JSON.stringify(event.body)}
         <br>
+        ${"--- event.multiValueQueryStringParameters --- "+JSON.stringify(event.multiValueQueryStringParameters)}
+        <br>
         "===================="
         <br>
         ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
