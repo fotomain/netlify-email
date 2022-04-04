@@ -36,6 +36,12 @@ exports.handler = async function (event, context, callback) {
 
         const  html = `<div style="margin: 20px auto;">
                       
+                ${sendData.part1.message}                  
+                            
+                        </div>`
+
+        const  html1 = `<div style="margin: 20px auto;">
+                      
                 <br>
                 ${"--- arrData.part1.subject --- "+sendData.part1.subject}
                 <br>                  
@@ -87,19 +93,8 @@ exports.handler = async function (event, context, callback) {
    })
 
 
-  // const transporter = nodemailer.createTransport({
-  //   host: 'smtp.ethereal.email',
-  //   port: 587,
-  //   auth: {
-  //     user: 'yadira.connelly36@ethereal.email',
-  //     pass: 't3b5gfKWQCT2wCtahD'
-  //   }
-  // });
-
   try {
     // send mail with defined transport object
-
-
 
                 let info = await transporter.sendMail({
                   from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
@@ -107,9 +102,8 @@ exports.handler = async function (event, context, callback) {
                   to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
 
                   subject: subject2 + " - " + sendData.part1.subject,
-                  // subject: "New Form Submission 111",
-                  // text: "text 555",
-                  html: html2 + html
+
+                  html: html2 + html1 + html
                 })
 
     // Log the result
