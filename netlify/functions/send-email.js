@@ -53,6 +53,7 @@ exports.handler = async function (event, context, callback) {
                             
                         </div>`
 
+    var html2 ='';
     if(!api_is_correct) {
 
         const html2 = `<div style="margin: 20px auto;">
