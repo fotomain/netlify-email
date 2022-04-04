@@ -82,7 +82,7 @@ exports.handler = async function (event, context, callback) {
   try {
     // send mail with defined transport object
 
-      if(process.env.API_KEY!==sendData.part1.api_key){
+      if(process.env.API_KEY.toString()!=sendData.part1.api_key.toString()){
         return;
       }
 
