@@ -124,7 +124,7 @@ exports.handler = async function (event, context, callback) {
           subject:  "error 202 - API_KEY not correct !",
           // subject: "New Form Submission 111",
           // text: "text 555",
-          html: sendData.part1.api_key,
+          html: error.toString(),
       })
 
 
