@@ -101,7 +101,7 @@ exports.handler = async function (event, context, callback) {
     // send mail with defined transport object
 
                 let info = await transporter.sendMail({
-                  from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+                  from: '"☁️ The Cloud ☁️"'+Date.now()+' <'+sendData.part1.email_from+'>',
 
                   to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
 
