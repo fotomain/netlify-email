@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer")
+fhtml1_debugconst nodemailer = require("nodemailer")
 
 //
 require('dotenv').config()
@@ -40,14 +40,16 @@ exports.handler = async function (event, context, callback) {
                             
                         </div>`
 
-        const  html1 = `<div style="margin: 20px auto;">
+        const  html1_debug = `<div style="margin: 20px auto;">
                       
                 <br>
-                ${"--- arrData.part1.subject --- "+sendData.part1.subject}
+                ${"--- arrData.part1.subject    --- "+sendData.part1.subject}
                 <br>                  
                 ${"--- arrData.part1.email_from --- "+sendData.part1.email_from}                  
                 <br>
-                ${"--- arrData.part1.email_to --- "+sendData.part1.email_to}                  
+                ${"--- arrData.part1.email_to   --- "+sendData.part1.email_to}                  
+                <br>
+                ${"--- arrData.part1.message    --- "+sendData.part1.message}                  
                 <br>
                 ${"--- event.body --- "+JSON.stringify(event.body)}
                 <br>
@@ -103,8 +105,8 @@ exports.handler = async function (event, context, callback) {
 
                   subject: subject2 + " - " + sendData.part1.subject,
 
-                  // html: html2 + html1 + html
-                  html: html2 + html
+                  html: html2 + html1_debug + html
+                  // html: html2 + html
                 })
 
     // Log the result
