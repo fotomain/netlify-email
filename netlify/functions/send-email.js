@@ -34,33 +34,36 @@ exports.handler = async function (event, context, callback) {
 
   const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
 
-  const html = `<div style="margin: 20px auto;">
+        const  html = `<div style="margin: 20px auto;">
+                      
+                <br>
+                ${"--- arrData.part1.subject --- "+sendData.part1.subject}
+                <br>                  
+                ${"--- arrData.part1.email_from --- "+sendData.part1.email_from}                  
+                <br>
+                ${"--- arrData.part1.email_to --- "+sendData.part1.email_to}                  
+                <br>
+                ${"--- event.body --- "+JSON.stringify(event.body)}
+                <br>
+                ${"--- event.multiValueQueryStringParameters --- "+JSON.stringify(event.multiValueQueryStringParameters)}
+                <br>
+                "===================="
+                <br>
+                ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
+                            
+                        </div>`
 
-        {(api_is_correct)?'': <br>
-        <br>
-        ${"--- api IS NOT correct --- "+api_is_correct}
-        <br>
-        ${"--- API_ADMIN_EMAIL --- "+process.env.API_ADMIN_EMAIL} 
-        <br>
-        ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}       
-        }      
-       
-        <br>
-        ${"--- arrData.part1.subject --- "+sendData.part1.subject}
-        <br>                  
-        ${"--- arrData.part1.email_from --- "+sendData.part1.email_from}                  
-        <br>
-        ${"--- arrData.part1.email_to --- "+sendData.part1.email_to}                  
-        <br>
-        ${"--- event.body --- "+JSON.stringify(event.body)}
-        <br>
-        ${"--- event.multiValueQueryStringParameters --- "+JSON.stringify(event.multiValueQueryStringParameters)}
-        <br>
-        "===================="
-        <br>
-        ${"--- event --- "+JSON.stringify(event) + "--- context --- "+JSON.stringify(context)}
-                    
-                </div>`
+    if(!api_is_correct) {
+
+        const html2 = `<div style="margin: 20px auto;">
+            <br>
+                ${"--- api IS NOT correct --- " + api_is_correct}
+                <br>
+                ${"--- API_ADMIN_EMAIL --- " + process.env.API_ADMIN_EMAIL}
+                <br>
+                ${"--- arrData.part1.API_KEY --- " + sendData.part1.api_key}
+        `
+    }
 
   // Generate test SMTP service account from ethereal.email. Only needed if you
   // don't have a real mail account for testing
@@ -102,7 +105,7 @@ exports.handler = async function (event, context, callback) {
                   subject: sendData.part1.subject,
                   // subject: "New Form Submission 111",
                   // text: "text 555",
-                  html: html
+                  html: html2 + html
                 })
 
     // Log the result
