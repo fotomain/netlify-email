@@ -37,11 +37,14 @@ exports.handler = async function (event, context, callback) {
   const html = `<div style="margin: 20px auto;">
 
         {!api_is_correct && <br>
-        ${"--- api IS NOT correct --- "+api_is_correct}
-        }
-        
         <br>
-        ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}
+        ${"--- api IS NOT correct --- "+api_is_correct}
+        <br>
+        ${"--- API_ADMIN_EMAIL --- "+process.env.API_ADMIN_EMAIL}
+        <br>
+        ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}       
+        }      
+       
         <br>
         ${"--- arrData.part1.subject --- "+sendData.part1.subject}
         <br>                  
@@ -91,22 +94,6 @@ exports.handler = async function (event, context, callback) {
 
 
 
-      if(api_is_correct){
-
-
-          let info = await transporter.sendMail({
-              from: '"☁️error 101 - The Cloud ☁️" <'+sendData.part1.email_from+'>',
-
-              to: process.env.API_ADMIN_EMAIL,
-              subject:  "error 101 - API_KEY not correct !",
-              // subject: "New Form Submission 111",
-              // text: "text 555",
-              html: sendData.part1.api_key,
-          })
-
-      }
-      else
-      {
                 let info = await transporter.sendMail({
                   from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
@@ -116,7 +103,7 @@ exports.handler = async function (event, context, callback) {
                   // text: "text 555",
                   html: html
                 })
-      }
+
     // Log the result
     console.log(info)
     callback(null, {
