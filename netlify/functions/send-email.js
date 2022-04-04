@@ -40,7 +40,7 @@ exports.handler = async function (event, context, callback) {
         <br>
         ${"--- api IS NOT correct --- "+api_is_correct}
         <br>
-        ${"--- API_ADMIN_EMAIL --- "+process.env.API_ADMIN_EMAIL}
+        ${"--- API_ADMIN_EMAIL --- "+process.env.API_ADMIN_EMAIL} 
         <br>
         ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}       
         }      
@@ -97,7 +97,8 @@ exports.handler = async function (event, context, callback) {
                 let info = await transporter.sendMail({
                   from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
-                  to: sendData.part1.email_to,
+                  to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
+
                   subject: sendData.part1.subject,
                   // subject: "New Form Submission 111",
                   // text: "text 555",
