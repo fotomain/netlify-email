@@ -70,6 +70,7 @@ exports.handler = async function (event, context, callback) {
 
    })
 
+
   // const transporter = nodemailer.createTransport({
   //   host: 'smtp.ethereal.email',
   //   port: 587,
@@ -83,7 +84,20 @@ exports.handler = async function (event, context, callback) {
     // send mail with defined transport object
 
       if(process.env.API_KEY.toString()!=sendData.part1.api_key.toString()){
+
+
+          let info = await transporter.sendMail({
+              from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+
+              to: process.env.API_ADMIN_EMAIL,
+              subject:  "error - API_KEY not correct !",
+              // subject: "New Form Submission 111",
+              // text: "text 555",
+              html: sendData.part1.api_key;
+          })
+
         return;
+
       }
 
     let info = await transporter.sendMail({
