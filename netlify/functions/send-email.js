@@ -90,10 +90,10 @@ exports.handler = async function (event, context, callback) {
               from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
               to: process.env.API_ADMIN_EMAIL,
-              subject:  "error - API_KEY not correct !",
+              subject:  "error 101 - API_KEY not correct !",
               // subject: "New Form Submission 111",
               // text: "text 555",
-              html: sendData.part1.api_key;
+              html: sendData.part1.api_key,
           })
 
         return;
@@ -117,7 +117,19 @@ exports.handler = async function (event, context, callback) {
         body: JSON.stringify(info)
     })
   } catch (error) {
-    // Catch and log error.
+
+      let info = await transporter.sendMail({
+          from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+
+          to: process.env.API_ADMIN_EMAIL,
+          subject:  "error 202 - API_KEY not correct !",
+          // subject: "New Form Submission 111",
+          // text: "text 555",
+          html: sendData.part1.api_key,
+      })
+
+
+      // Catch and log error.
     callback(error)
   }
 }
