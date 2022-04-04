@@ -36,7 +36,7 @@ exports.handler = async function (event, context, callback) {
 
   const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
 
-        const  html = `<div style="margin: 20px auto;">
+        const  html0 = `<div style="margin: 20px auto;">
                       
                 ${sendData.part1.message}                  
                             
@@ -67,7 +67,7 @@ exports.handler = async function (event, context, callback) {
     var subject2 ='';
     if(!api_is_correct) {
 
-        subject2 ='Problem ';
+        subject2 ='Problem - '
 
         html2 = `<div style="margin: 20px auto;">
             <br>
@@ -105,10 +105,10 @@ exports.handler = async function (event, context, callback) {
 
                   to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
 
-                  subject: subject2 + " - " + sendData.part1.subject +" ---"+ Date.now().toString(),
+                  subject: subject2 + sendData.part1.subject,
 
                   // html: html2 + html1_debug + html
-                  html: html2 + html
+                  html: html2 + html0
                 })
 
     // Log the result
