@@ -56,7 +56,7 @@ exports.handler = async function (event, context, callback) {
     var html2 ='';
     if(!api_is_correct) {
 
-        const html2 = `<div style="margin: 20px auto;">
+        html2 = `<div style="margin: 20px auto;">
             <br>
                 ${"--- api IS NOT correct --- " + api_is_correct}
                 <br>
