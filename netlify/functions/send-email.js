@@ -32,8 +32,12 @@ exports.handler = async function (event, context, callback) {
   // const arrData1 = JSON.parse(arrData0)
   //   ${"--- arrData.email_to --- "+arrData.email_to}
 
+  const api_is_ok = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
+
   const html = `<div style="margin: 20px auto;">
 
+        <br>
+        ${"--- api_is_ok --- "+api_is_ok}
         <br>
         ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}
         <br>
