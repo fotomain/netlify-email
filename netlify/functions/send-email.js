@@ -36,12 +36,17 @@ exports.handler = async function (event, context, callback) {
 
   const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
 
-        const  html0 = `<div style="margin: 20px auto;">
-                      
-                ${sendData.part1.message}                  
-                            
-                        </div>`
-
+        const  html0 =
+            `<div>                    
+                ${sendData.part1.message}                            
+             </div>
+             <div>                    
+                ${sendData.part1.signature}                            
+             </div>
+             <div>                    
+                ${sendData.part1.footer}                            
+             </div>
+            `; //!!!!!!!
         const  html1_debug = `<div style="margin: 20px auto;">
                       
                 <br>
