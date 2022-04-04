@@ -1,4 +1,4 @@
-fhtml1_debugconst nodemailer = require("nodemailer")
+nodemailer = require("nodemailer")
 
 //
 require('dotenv').config()
