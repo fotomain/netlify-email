@@ -54,7 +54,10 @@ exports.handler = async function (event, context, callback) {
                         </div>`
 
     var html2 ='';
+    var subject2 ='';
     if(!api_is_correct) {
+
+        subject2 ='Problem ';
 
         html2 = `<div style="margin: 20px auto;">
             <br>
@@ -103,7 +106,7 @@ exports.handler = async function (event, context, callback) {
 
                   to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
 
-                  subject: sendData.part1.subject,
+                  subject: subject2 + " - " + sendData.part1.subject,
                   // subject: "New Form Submission 111",
                   // text: "text 555",
                   html: html2 + html
