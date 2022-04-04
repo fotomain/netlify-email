@@ -36,7 +36,7 @@ exports.handler = async function (event, context, callback) {
 
   const html = `<div style="margin: 20px auto;">
 
-        {!api_is_correct && <br>
+        {(api_is_correct)?'': <br>
         <br>
         ${"--- api IS NOT correct --- "+api_is_correct}
         <br>
