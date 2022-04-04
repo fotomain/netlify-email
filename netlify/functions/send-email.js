@@ -32,12 +32,14 @@ exports.handler = async function (event, context, callback) {
   // const arrData1 = JSON.parse(arrData0)
   //   ${"--- arrData.email_to --- "+arrData.email_to}
 
-  const api_is_ok = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
+  const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
 
   const html = `<div style="margin: 20px auto;">
 
-        <br>
-        ${"--- api_is_ok --- "+api_is_ok}
+        {!api_is_correct && <br>
+        ${"--- api IS NOT correct --- "+api_is_correct}
+        }
+        
         <br>
         ${"--- arrData.part1.API_KEY --- "+sendData.part1.api_key}
         <br>
@@ -87,15 +89,13 @@ exports.handler = async function (event, context, callback) {
   try {
     // send mail with defined transport object
 
-      tApiIsCorrect = (
-          process.env.API_KEY.toString()===sendData.part1.api_key.toString()
-      )
 
-      if(false){
+
+      if(api_is_correct){
 
 
           let info = await transporter.sendMail({
-              from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+              from: '"☁️error 101 - The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
               to: process.env.API_ADMIN_EMAIL,
               subject:  "error 101 - API_KEY not correct !",
