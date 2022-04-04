@@ -110,7 +110,7 @@ exports.handler = async function (event, context, callback) {
                   subject: sendData.part1.subject,
                   // subject: "New Form Submission 111",
                   // text: "text 555",
-                  html: tApiIsCorrect.toString() +" --- "+ html
+                  html: html
                 })
       }
     // Log the result
