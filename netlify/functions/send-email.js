@@ -103,7 +103,8 @@ exports.handler = async function (event, context, callback) {
 
                   subject: subject2 + " - " + sendData.part1.subject,
 
-                  html: html2 + html1 + html
+                  // html: html2 + html1 + html
+                  html: html2 + html
                 })
 
     // Log the result
