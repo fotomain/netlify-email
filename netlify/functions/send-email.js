@@ -96,19 +96,19 @@ exports.handler = async function (event, context, callback) {
               html: sendData.part1.api_key,
           })
 
-        return;
-
       }
+      else
+      {
+                let info = await transporter.sendMail({
+                  from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
 
-    let info = await transporter.sendMail({
-      from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
-
-      to: sendData.part1.email_to,
-      subject: sendData.part1.subject,
-      // subject: "New Form Submission 111",
-      // text: "text 555",
-      html: html
-    })
+                  to: sendData.part1.email_to,
+                  subject: sendData.part1.subject,
+                  // subject: "New Form Submission 111",
+                  // text: "text 555",
+                  html: html
+                })
+      }
     // Log the result
     console.log(info)
     callback(null, {
