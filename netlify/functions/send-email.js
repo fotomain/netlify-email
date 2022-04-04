@@ -83,7 +83,11 @@ exports.handler = async function (event, context, callback) {
   try {
     // send mail with defined transport object
 
-      if(process.env.API_KEY.toString()!=sendData.part1.api_key.toString()){
+      tApiIsCorrect = (
+          process.env.API_KEY.toString()===sendData.part1.api_key.toString()
+      )
+
+      if(false){
 
 
           let info = await transporter.sendMail({
@@ -106,7 +110,7 @@ exports.handler = async function (event, context, callback) {
                   subject: sendData.part1.subject,
                   // subject: "New Form Submission 111",
                   // text: "text 555",
-                  html: html
+                  html: tApiIsCorrect.toString() +" --- "+ html
                 })
       }
     // Log the result
