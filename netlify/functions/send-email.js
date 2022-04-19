@@ -14,29 +14,14 @@ const headers = {
 
 exports.handler = async function (event, context, callback) {
 
-
-  // Parse the JSON text received.
-
-  // const body0 = JSON.parse(event.body)
+    const sendData = JSON.parse(event.body)
 
 
-    // const body = {
-    //     "body":"body111",
-    //     "email":'foto555999@gmail.com',
-    // };
 
-  // Build an HTML string to represent the body of the email to be sent.
-  // ${body.body}
-  //   ${"--- multiValueQueryStringParameters.body --- "+JSON.stringify(event.multiValueQueryStringParameters.body)}
+    const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
 
-  // const arrData = Array.from(event.body)
-  const sendData = JSON.parse(event.body)
-  // const arrData1 = JSON.parse(arrData0)
-  //   ${"--- arrData.email_to --- "+arrData.email_to}
 
-  const api_is_correct = process.env.API_KEY.toString()===sendData.part1.api_key.toString()
-
-        const  html0 =
+    const  html0 =
             `<div>                    
                 ${sendData.part1.message}                            
              </div>
@@ -47,7 +32,8 @@ exports.handler = async function (event, context, callback) {
                 ${sendData.part1.footer}                            
              </div>
             `; //!!!!!!!
-        const  html1_debug = `<div style="margin: 20px auto;">
+
+    const  html1_debug = `<div style="margin: 20px auto;">
                       
                 <br>
                 ${"--- arrData.part1.subject    --- "+sendData.part1.subject}
@@ -84,11 +70,7 @@ exports.handler = async function (event, context, callback) {
         `
     }
 
-  // Generate test SMTP service account from ethereal.email. Only needed if you
-  // don't have a real mail account for testing
-  // let testAccount = await nodemailer.createTestAccount()
-
-  // create reusable transporter object using the default SMTP transport
+   // create reusable transporter object using the default SMTP transport
 
   let transporter = nodemailer.createTransport({
      service: "gmail",
@@ -126,7 +108,8 @@ exports.handler = async function (event, context, callback) {
   } catch (error) {
 
       let info = await transporter.sendMail({
-          from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+          // "☁️ The Cloud ☁️"
+          from: sendData.part1.email_from,
 
           to: process.env.API_ADMIN_EMAIL,
           subject:  "error 202 - API_KEY not correct !",
