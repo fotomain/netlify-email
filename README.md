@@ -12,3 +12,7 @@ Free for use!
 
 Be aware for details in you [https://console.cloud.google.com/apis/credentials/consent?project](https://console.cloud.google.com/apis/credentials/consent?project)
 
+to obtain a:
+                +API Key
+                +clientId CLI ID
+                +clientSecret CLI SECRET
