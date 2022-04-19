@@ -88,7 +88,8 @@ exports.handler = async function (event, context, callback) {
     // send mail with defined transport object
 
                 let info = await transporter.sendMail({
-                  from: '"☁️ The Cloud ☁️" <'+sendData.part1.email_from+'>',
+                  // '"☁️ The Cloud ☁️" <'+
+                  from: sendData.part1.email_from,
 
                   to: (api_is_correct)?sendData.part1.email_to : process.env.API_ADMIN_EMAIL,
 
@@ -109,7 +110,8 @@ exports.handler = async function (event, context, callback) {
 
       let info = await transporter.sendMail({
           // "☁️ The Cloud ☁️"
-          from: sendData.part1.email_from,
+
+          from: '"☁️ The Error from LifeStyle Cloud ☁️" <'+sendData.part1.email_from+'>',
 
           to: process.env.API_ADMIN_EMAIL,
           subject:  "error 202 - API_KEY not correct !",
