@@ -1,4 +1,4 @@
-# Send Custom Email Using: Netlify Functions + nodemailer + Google
+# Send Custom Email Using: Netlify Functions + Nodemailer + Google
 
 To keep things simple, this works with nodemailer+Google gmail service
 
