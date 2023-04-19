@@ -54,7 +54,7 @@ exports.handler = async function (event, context, callback) {
                             
                         </div>`
 
-    var html0 ='<div>database</div>';
+    var html10 ='<div>database</div>';
     var html2 ='';
     var subject2 ='';
     if(!api_is_correct) {
@@ -98,7 +98,7 @@ exports.handler = async function (event, context, callback) {
 
                   // html: html2 + html1_debug + html
                   // html: html2 + html0
-                  html:html0
+                  html:html10
                 })
 
     // Log the result
