@@ -7,7 +7,7 @@ require('dotenv').config()
 
 const headers = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Origin-Credentials": "true",
+    // "Access-Control-Allow-Origin-Credentials": "true",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     'Content-Type': 'application/json'
