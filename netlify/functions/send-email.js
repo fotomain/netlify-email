@@ -2,7 +2,7 @@
 
 nodemailer = require("nodemailer")
 
-//
+// v 2023
 require('dotenv').config()
 
 const headers = {
